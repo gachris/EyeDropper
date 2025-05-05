@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="EyeDropper.Bootstrapper.UI.Views.DowngradeDetectedPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:EyeDropper.Bootstrapper.UI.ViewModels"
+    Title="{x:Static loc:Resources.Installation_successful}"
+    d:DataContext="{d:DesignInstance viewModels:DowngradeDetectedViewModel}"
+    d:Height="600"
+    d:Width="800"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/EyeDropper.Bootstrapper.UI;component/DataTemplates/DowngradeDetectedView.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <ContentControl
+        Content="{Binding}"
+        Focusable="False"
+        IsTabStop="False"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True" />
+</Page>

@@ -1,0 +1,140 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:viewModels="clr-namespace:EyeDropper.Bootstrapper.UI.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:InstallDetailsViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="46,24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Margin="0,10">
+                    <TextBlock
+                        Margin="0,0,0,10"
+                        FontWeight="Bold"
+                        Text="{x:Static loc:Resources.Install_to}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+                            x:Name="InstallPathTextBox"
+                            Padding="2,4"
+                            VerticalAlignment="Stretch"
+                            VerticalContentAlignment="Center"
+                            FontSize="14"
+                            IsReadOnly="True"
+                            Text="{Binding InstallFolder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <Button
+                            Grid.Column="1"
+                            Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                            VerticalAlignment="Stretch"
+                            Background="{Binding ElementName=InstallPathTextBox, Path=Background}"
+                            BorderBrush="{Binding ElementName=InstallPathTextBox, Path=BorderBrush}"
+                            BorderThickness="0,1,1,1"
+                            Command="{Binding BrowseInstallFolderCommand}">
+                            <devtoolbox:FontGlyph
+                                Code="{x:Static devtoolbox:Symbol.FolderOpened}"
+                                FontSize="18"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                        </Button>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="0,20">
+                    <TextBlock
+                        Margin="0,0,0,10"
+                        FontWeight="Bold"
+                        Text="{x:Static loc:Resources.Options}" />
+                    <CheckBox
+                        Margin="0,6"
+                        HorizontalAlignment="Left"
+                        IsChecked="{Binding LaunchOnStartup, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <TextBlock Padding="10,0,0,0" Text="{x:Static loc:Resources.Lanch_on_startup}" />
+                    </CheckBox>
+                    <CheckBox
+                        Margin="0,6"
+                        HorizontalAlignment="Left"
+                        IsChecked="{Binding CreateDesktopShortcut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <TextBlock Padding="10,0,0,0" Text="{x:Static loc:Resources.Create_a_desktop_shortcut}" />
+                    </CheckBox>
+                    <CheckBox
+                        Margin="0,6"
+                        HorizontalAlignment="Left"
+                        IsChecked="{Binding CreateStartMenuShortcut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <TextBlock Padding="10,0,0,0" Text="{x:Static loc:Resources.Create_a_start_menu_shortcut}" />
+                    </CheckBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="0,20,0,0">
+                    <CheckBox
+                        Margin="0,6"
+                        HorizontalAlignment="Left"
+                        IsChecked="{Binding Agree, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBlock Padding="10,0,0,0" Text="{x:Static loc:Resources.Agree_terms}" />
+                    </CheckBox>
+                    <Button
+                        Margin="26,6,0,6"
+                        HorizontalAlignment="Left"
+                        Command="{Binding LicenseCommand}"
+                        Style="{StaticResource HyperlinkButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <devtoolbox:FontGlyph
+                                Code="{x:Static devtoolbox:Symbol.Shield}"
+                                FontSize="16"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                            <TextBlock Margin="2,0,0,0" Text="{x:Static loc:Resources.Privacy_statement}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Separator
+                Grid.Row="1"
+                Margin="0"
+                Style="{DynamicResource SimpleHorizontalSeparatorStyle}" />
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    MinWidth="80"
+                    Margin="0,14,4,14"
+                    Padding="6"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    Command="{Binding InstallCommand}"
+                    Content="{x:Static loc:Resources.Install}"
+                    FontSize="14"
+                    IsDefault="True" />
+                <Button
+                    MinWidth="80"
+                    Margin="4,14,22,14"
+                    Padding="6"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    Command="{Binding CancelCommand}"
+                    Content="{x:Static loc:Resources.Cancel}"
+                    FontSize="14" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

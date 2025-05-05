@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\welcome-page-color-picker.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommonServiceLocator" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="DevToolbox.Wpf" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EyeDropper.Bootstrapper.Core\EyeDropper.Bootstrapper.Core.csproj" />
+		<ProjectReference Include="..\EyeDropper.Localization\EyeDropper.Localization.csproj" />
+	</ItemGroup>
+
+</Project>

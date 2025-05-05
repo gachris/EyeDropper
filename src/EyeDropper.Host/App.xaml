@@ -1,0 +1,83 @@
+﻿<Application
+    x:Class="EyeDropper.Host.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:tb="http://www.hardcodet.net/taskbar"
+    xmlns:ui="clr-namespace:EyeDropper.UI;assembly=EyeDropper.UI"
+    ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/EyeDropper.UI;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <tb:TaskbarIcon
+                x:Key="Taskbar"
+                DataContext="{Binding TaskbarViewModel, Source={StaticResource ViewModelLocator}}"
+                IconSource="pack://application:,,,/EyeDropper.UI;component/Assets/app-icon.ico"
+                LeftClickCommand="{Binding CaptureCommand}"
+                MenuActivation="RightClick"
+                NoLeftClickDelay="True"
+                PopupActivation="DoubleClick"
+                ToolTipText="{x:Static loc:Resources.Eye_dropper}">
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.HTML}"
+                            Header="{x:Static loc:Resources.HTML}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HTML'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.Hex}"
+                            Header="{x:Static loc:Resources.Hex}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Hex'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.DelphiHex}"
+                            Header="{x:Static loc:Resources.Delphi_Hex}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='DelphiHex'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.VBHex}"
+                            Header="{x:Static loc:Resources.VB_Hex}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='VBHex'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.RGB}"
+                            Header="{x:Static loc:Resources.RGB}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='RGB'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.RGBFloat}"
+                            Header="{x:Static loc:Resources.RGB_Float}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='RGBFloat'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.HSV}"
+                            Header="{x:Static loc:Resources.HSV}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HSV'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.HSL}"
+                            Header="{x:Static loc:Resources.HSL}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HSL'}" />
+                        <MenuItem
+                            Command="{Binding SetColorFormatCommand}"
+                            CommandParameter="{x:Static devtoolbox:ColorFormat.Long}"
+                            Header="{x:Static loc:Resources.Long}"
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Long'}" />
+                        <Separator />
+                        <MenuItem Command="{Binding OpenAdvanceColorPickerCommand}" Header="{x:Static loc:Resources.Advance_Color_Picker}" />
+                        <Separator />
+                        <MenuItem Command="{Binding OpenSettingsCommand}" Header="{x:Static loc:Resources.Settings}" />
+                        <Separator />
+                        <MenuItem Command="{Binding ExitApplicationCommand}" Header="{x:Static loc:Resources.Exit}" />
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

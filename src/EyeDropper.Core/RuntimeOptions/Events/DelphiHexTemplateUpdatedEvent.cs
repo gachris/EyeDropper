@@ -1,0 +1,10 @@
+﻿using EyeDropper.ApplicationFlow;
+
+namespace EyeDropper.Core.RuntimeOptions.Events;
+
+/// <summary>
+/// Represents an event raised when the Delphi hex output template is updated.
+/// </summary>
+public class DelphiHexTemplateUpdatedEvent : ApplicationEvent
+{
+}

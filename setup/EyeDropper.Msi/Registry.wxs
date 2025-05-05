@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+		<Component
+			Id="AutoLaunchComponent"
+			Guid="{056636AA-ABD1-4290-BEE2-46F3B9291808}"
+			Condition="LAUNCHONSTARTUP=1">
+
+			<RegistryValue
+				Root="HKCU"
+				Key="Software\Microsoft\Windows\CurrentVersion\Run"
+				Name="EyeDropper"
+				Value="[INSTALLFOLDER]EyeDropper.exe"
+				Type="string"
+				KeyPath="yes" />
+
+			<RemoveRegistryValue
+				Root="HKCU"
+				Key="Software\Microsoft\Windows\CurrentVersion\Run"
+				Name="EyeDropper" />
+			
+		</Component>
+	</Fragment>
+</Wix>

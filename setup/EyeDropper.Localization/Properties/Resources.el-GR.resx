@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Agree_terms" xml:space="preserve">
+    <value>Επιλέγοντας 'Εγκατάσταση', αποδέχεστε τους όρους χρήσης.</value>
+  </data>
+  <data name="Application_installed_successfully_message" xml:space="preserve">
+    <value>Η εφαρμογή εγκαταστάθηκε με επιτυχία. Μπορείτε τώρα να την ανοίξετε.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="Create_a_shortcut" xml:space="preserve">
+    <value>Δημιουργία συντόμευσης</value>
+  </data>
+  <data name="Dissmis" xml:space="preserve">
+    <value>Απόρριψη</value>
+  </data>
+  <data name="Existing_version_xx" xml:space="preserve">
+    <value>Υπάρχουσα έκδοση: {0}</value>
+  </data>
+  <data name="Eye_dropper_was_uninstalled" xml:space="preserve">
+    <value>Το EyeDropper απεγκαταστάθηκε</value>
+  </data>
+  <data name="Feature_1" xml:space="preserve">
+    <value>• Επιλογή χρώματος από την οθόνη: Επιλέξτε γρήγορα οποιοδήποτε χρώμα από την οθόνη σας με ένα απλό κλικ και λάβετε τις ακριβείς τιμές χρώματος που χρειάζεστε.</value>
+  </data>
+  <data name="Feature_2" xml:space="preserve">
+    <value>• Προηγμένος επιλογέας χρωμάτων: Βελτιώστε τις επιλογές σας μέσω του πίνακα ρυθμίσεων χρωμάτων. Προσαρμόστε με διάφορους τρόπους, όπως RGB, HSL, CMYK και εξάδες (Hex).</value>
+  </data>
+  <data name="Final_note" xml:space="preserve">
+    <value>Με το EyeDropper, μπορείτε να βελτιώσετε τη ροή εργασίας σας και να λαμβάνετε αποφάσεις για τα χρώματα με αυτοπεποίθηση. Ας ξεκινήσουμε!</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Εγκατάσταση</value>
+  </data>
+  <data name="Installation_complete" xml:space="preserve">
+    <value>Η εγκατάσταση ολοκληρώθηκε!</value>
+  </data>
+  <data name="Installation_details" xml:space="preserve">
+    <value>Λεπτομέρειες εγκατάστασης</value>
+  </data>
+  <data name="Installation_successful" xml:space="preserve">
+    <value>Η εγκατάσταση ήταν επιτυχής</value>
+  </data>
+  <data name="Installing_application" xml:space="preserve">
+    <value>Εγκατάσταση της εφαρμογής</value>
+  </data>
+  <data name="Install_to" xml:space="preserve">
+    <value>Εγκατάσταση σε</value>
+  </data>
+  <data name="Key_features_header" xml:space="preserve">
+    <value>Κύρια χαρακτηριστικά:</value>
+  </data>
+  <data name="Lanch_on_startup" xml:space="preserve">
+    <value>Εκκίνηση με την έναρξη</value>
+  </data>
+  <data name="Launch_app" xml:space="preserve">
+    <value>Εκκίνηση εφαρμογής</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Επόμενο</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Επιλογές</value>
+  </data>
+  <data name="Privacy_statement" xml:space="preserve">
+    <value>Δήλωση απορρήτου</value>
+  </data>
+  <data name="Progress_tracker" xml:space="preserve">
+    <value>Παρακολούθηση προόδου</value>
+  </data>
+  <data name="Start_using_eye_dropper_message" xml:space="preserve">
+    <value>Είστε έτοιμοι να ξεκινήσετε να χρησιμοποιείτε το EyeDropper!</value>
+  </data>
+  <data name="Successully_uninstalled_message" xml:space="preserve">
+    <value>Έχετε απεγκαταστήσει επιτυχώς όλα τα πακέτα και εξαρτήματα που σχετίζονται με το EyeDropper από τον υπολογιστή σας.</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Απεγκατάσταση</value>
+  </data>
+  <data name="Uninstalling_application" xml:space="preserve">
+    <value>Απεγκατάσταση εφαρμογής</value>
+  </data>
+  <data name="Uninstalling_message" xml:space="preserve">
+    <value>Η απεγκατάσταση του EyeDropper θα αφαιρέσει όλα τα σχετικά πακέτα και εξαρτήματα από τον υπολογιστή σας.</value>
+  </data>
+  <data name="Uninstall_EyeDropper_application" xml:space="preserve">
+    <value>Απεγκατάσταση της εφαρμογής EyeDropper</value>
+  </data>
+  <data name="Version_xx" xml:space="preserve">
+    <value>Έκδοση: {0}</value>
+  </data>
+  <data name="Welcome_description" xml:space="preserve">
+    <value>Το EyeDropper είναι ένα ευέλικτο εργαλείο σχεδιασμένο για να σας βοηθήσει να καταγράψετε και να εντοπίσετε χρώματα απευθείας από την οθόνη σας. Είστε σχεδιαστής, προγραμματιστής ή καλλιτέχνης; Το EyeDropper είναι ο τέλειος σύντροφός σας για ακριβή επιλογή χρωμάτων.</value>
+  </data>
+  <data name="Welcome_page_title" xml:space="preserve">
+    <value>Εγκατάσταση της εφαρμογής EyeDropper</value>
+  </data>
+  <data name="Welcome_title" xml:space="preserve">
+    <value>Καλώς ήρθατε στον εγκαταστάτη του EyeDropper</value>
+  </data>
+</root>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/DevToolbox.Wpf;component/Themes/Styles/Button/Generic.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style
+        x:Key="HyperlinkButtonStyle"
+        BasedOn="{StaticResource ButtonStyle}"
+        TargetType="Button">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource HyperlinkButton.Background}" />
+        <Setter Property="devtoolbox:UIElementHelper.MouseOverBackground" Value="{DynamicResource HyperlinkButton.MouseOverBackground}" />
+        <Setter Property="devtoolbox:UIElementHelper.MouseOverForeground" Value="{DynamicResource HyperlinkButton.MouseOverForeground}" />
+        <Setter Property="devtoolbox:UIElementHelper.PressedBackground" Value="{DynamicResource HyperlinkButton.PressedBackground}" />
+        <Setter Property="devtoolbox:UIElementHelper.PressedForeground" Value="{DynamicResource HyperlinkButton.PressedForeground}" />
+        <Setter Property="devtoolbox:UIElementHelper.DisabledBackground" Value="{DynamicResource HyperlinkButton.DisabledBackground}" />
+        <Setter Property="devtoolbox:UIElementHelper.FocusedBackground" Value="{DynamicResource HyperlinkButton.FocusedBackground}" />
+    </Style>
+
+</ResourceDictionary>

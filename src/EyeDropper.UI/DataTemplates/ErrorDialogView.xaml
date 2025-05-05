@@ -1,0 +1,44 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:viewModels="clr-namespace:EyeDropper.UI.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:ErrorDialogViewModel}">
+        <Grid
+            Margin="26,18,26,0"
+            SnapsToDevicePixels="True"
+            UseLayoutRounding="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Margin="0,0,0,0"
+                FontSize="{DynamicResource FontSize14}"
+                TextWrapping="Wrap">
+                <Run Text="{Binding Source={x:Static loc:Resources.Exception_message}, Mode=OneWay, StringFormat='{}{0}:'}" />
+                <Run Text="{Binding Message, Mode=OneWay}" />
+            </TextBlock>
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,14,0,0"
+                FontSize="{DynamicResource FontSize14}"
+                Text="{Binding Source={x:Static loc:Resources.Stack_Trace}, StringFormat='{}{0}:'}"
+                TextWrapping="Wrap" />
+            <TextBox
+                Grid.Row="2"
+                Margin="0,2,0,0"
+                devtoolbox:UIElementHelper.CornerRadius="2"
+                FontSize="{DynamicResource FontSize14}"
+                IsReadOnly="True"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                Text="{Binding StackTrace, Mode=OneWay}"
+                TextWrapping="Wrap" />
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,73 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:viewModels="clr-namespace:EyeDropper.Bootstrapper.UI.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:InstallSuccessfulViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Margin="32,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Width="300"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="/EyeDropper.Bootstrapper.UI;component/Assets/welcome-page-color-picker.png"
+                    Stretch="Uniform" />
+                <StackPanel Grid.Column="1">
+                    <TextBlock
+                        Margin="0,0,0,10"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="{x:Static loc:Resources.Installation_complete}" />
+                    <TextBlock
+                        Margin="0,0,0,20"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Text="{x:Static loc:Resources.Start_using_eye_dropper_message}" />
+                    <TextBlock
+                        Margin="0,0,0,10"
+                        FontSize="14"
+                        Text="{x:Static loc:Resources.Application_installed_successfully_message}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+            <Separator
+                Grid.Row="1"
+                Margin="0"
+                Style="{DynamicResource SimpleHorizontalSeparatorStyle}" />
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    MinWidth="80"
+                    Margin="0,14,4,14"
+                    Padding="6"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    Command="{Binding LaunchAppCommand}"
+                    Content="{x:Static loc:Resources.Launch_app}"
+                    FontSize="14" />
+                <Button
+                    MinWidth="80"
+                    Margin="4,14,22,14"
+                    Padding="6"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    Command="{Binding CloseCommand}"
+                    Content="{x:Static loc:Resources.Close}"
+                    FontSize="14" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

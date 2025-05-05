@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Title>EyeDropper</Title>
+		<UpgradeCode>{ECE8ED03-F990-4E1E-A0D2-22AABD9E908D}</UpgradeCode>
+		<Authors>gachris</Authors>
+		<Company>PixelProdigy</Company>
+		<Copyright>Copyright © 2025.</Copyright>
+		<LicenseUrl>https://github.com/gachris/EyeDropper/blob/master/LICENSE</LicenseUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Versioning">
+		<MajorVersion>1</MajorVersion>
+		<MinorVersion>0</MinorVersion>
+		<BuildNumber>0</BuildNumber>
+		<RevisionNumber>$([System.DateTime]::UtcNow.ToString('yy'))$([System.String]::Format('{0:000}',$([System.DateTime]::UtcNow.DayOfYear)))</RevisionNumber>
+		<FileVersion>$(MajorVersion).$(MinorVersion).$(BuildNumber).$(RevisionNumber)</FileVersion>
+		<AssemblyVersion>$(FileVersion)</AssemblyVersion>
+		<ProductVersion>$(FileVersion)</ProductVersion>
+		<InformationalVersion>$(FileVersion)</InformationalVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Project Output">
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<ApplicationOutputPath>$(SolutionDir).build\$(Configuration)</ApplicationOutputPath>
+		<SetupOutputPath>$(SolutionDir).setup\$(Configuration)</SetupOutputPath>
+		<PackageOutputPath>$(SolutionDir).package\$(Configuration)</PackageOutputPath>
+	</PropertyGroup>
+
+</Project>

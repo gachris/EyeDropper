@@ -1,0 +1,76 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:viewModels="clr-namespace:EyeDropper.UI.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:AdvanceColorPickerDialogViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <devtoolbox:ColorPicker
+                x:Name="ColorPicker"
+                Margin="18"
+                ColorPickerStyle="FullWithAlpha"
+                Focusable="False"
+                FontSize="{DynamicResource FontSize14}"
+                InitialColor="{Binding InitialColor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                SelectedColor="{Binding SelectedColor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <Separator Grid.Row="1" Style="{DynamicResource SimpleHorizontalSeparatorStyle}" />
+            <DockPanel Grid.Row="2" Margin="18">
+                <devtoolbox:EyeDropper
+                    x:Name="EyeDropperControl"
+                    Grid.Column="0"
+                    Padding="6"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    ColorFormat="{Binding ColorFormat}"
+                    ColorFormatPrecision="{Binding Precision}"
+                    ColorFormatTemplate="{Binding Template}"
+                    CopyColorToClipboard="False"
+                    Cursor="/EyeDropper.UI;component/Assets/picker.cur"
+                    FontSize="{DynamicResource FontSize16}">
+                    <b:Interaction.Triggers>
+                        <b:PropertyChangedTrigger Binding="{Binding ElementName=EyeDropperControl, Path=Color}">
+                            <b:InvokeCommandAction Command="{Binding ColorChangedCommand}" CommandParameter="{Binding ElementName=EyeDropperControl, Path=Color}" />
+                        </b:PropertyChangedTrigger>
+                        <b:EventTrigger EventName="CaptureChanged">
+                            <b:InvokeCommandAction Command="{Binding CaptureChangedCommand}" PassEventArgsToCommand="True" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                    <devtoolbox:FontGlyph Code="{x:Static devtoolbox:Symbol.ColorPicker}" />
+                </devtoolbox:EyeDropper>
+                <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                    <Button
+                        MinWidth="80"
+                        Margin="0,0,4,0"
+                        Padding="6"
+                        VerticalAlignment="Stretch"
+                        devtoolbox:UIElementHelper.CornerRadius="2"
+                        Command="{Binding OKCommand}"
+                        Content="{x:Static loc:Resources.OK}"
+                        FontSize="{DynamicResource FontSize14}"
+                        IsDefault="True" />
+                    <Button
+                        MinWidth="80"
+                        Margin="4,0,0,0"
+                        Padding="6"
+                        devtoolbox:UIElementHelper.CornerRadius="2"
+                        Content="{x:Static loc:Resources.Cancel}"
+                        FontSize="{DynamicResource FontSize14}"
+                        IsCancel="True" />
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

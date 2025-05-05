@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\app-icon.ico" />
+	  <None Remove="Assets\picker.cur" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EyeDropper.Application\EyeDropper.Application.csproj" />
+		<ProjectReference Include="..\EyeDropper.Localization\EyeDropper.Localization.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DevToolbox.Wpf" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Hardcodet.NotifyIcon.Wpf" />
+		<PackageReference Include="NHotkey.Wpf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Assets\app-icon.ico" />
+	  <Resource Include="Assets\picker.cur" />
+	</ItemGroup>
+
+</Project>

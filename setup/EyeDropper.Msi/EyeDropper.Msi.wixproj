@@ -1,0 +1,26 @@
+﻿<Project Sdk="WixToolset.Sdk/6.0.0">
+	<PropertyGroup>
+		<OutputName>EyeDropper</OutputName>
+		<OutputType>Package</OutputType>
+		<OutputPath>$(PackageOutputPath)</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DefineConstants>
+			ApplicationOutputPath=$(ApplicationOutputPath);
+			ProductVersion=$(ProductVersion);
+			Company=$(Company);
+			UpgradeCode=$(UpgradeCode);
+			Title=$(Title)
+		</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="appicon.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="WixToolset.Netfx.wixext" />
+		<PackageReference Include="WixToolset.UI.wixext" />
+	</ItemGroup>
+	<Target Name="CheckHarvestPathExists" BeforeTargets="PrepareForBuild">
+		<Error Condition="Exists('$(ApplicationOutputPath)') != 'true'" Text="The application harvest directory does not exist. Build the EyeDropper solution to create the required app components." />
+	</Target>
+</Project>

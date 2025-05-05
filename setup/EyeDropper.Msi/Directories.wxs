@@ -1,0 +1,13 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+		<!-- Create a folder for the actual installation files -->
+		<StandardDirectory Id="ProgramFiles64Folder">
+			<Directory Id="INSTALLFOLDER" Name="EyeDropper" />
+		</StandardDirectory>
+
+		<!-- Create a folder for shortcuts in the start-menu -->
+		<StandardDirectory Id="ProgramMenuFolder">
+			<Directory Id="ShortcutsFolder" Name="EyeDropper" />
+		</StandardDirectory>
+	</Fragment>
+</Wix>

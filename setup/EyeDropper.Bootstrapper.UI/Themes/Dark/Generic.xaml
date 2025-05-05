@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Text.ForegroundBrush" Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Separator.Background" Color="#3D3D3D" />
+
+    <SolidColorBrush x:Key="HyperlinkButton.Background" Color="Transparent" />
+    <SolidColorBrush x:Key="HyperlinkButton.MouseOverBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="HyperlinkButton.MouseOverForeground" Color="#388bcb" />
+    <SolidColorBrush x:Key="HyperlinkButton.PressedBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="HyperlinkButton.PressedForeground" Color="#0078D4" />
+    <SolidColorBrush x:Key="HyperlinkButton.DisabledBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="HyperlinkButton.FocusedBackground" Color="Transparent" />
+
+    <SolidColorBrush x:Key="ProgressBar.Background" Color="#383838" />
+    <SolidColorBrush x:Key="ProgressBar.BorderBrush" Color="#414141" />
+    <SolidColorBrush x:Key="ProgressBar.Foreground" Color="#388bcb" />
+
+</ResourceDictionary>

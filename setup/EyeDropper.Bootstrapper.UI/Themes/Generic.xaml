@@ -1,0 +1,29 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:ui="clr-namespace:EyeDropper.Bootstrapper.UI">
+    <ResourceDictionary.MergedDictionaries>
+        <devtoolbox:ThemePartResourceDictionary>
+            <devtoolbox:ThemePartResourceDictionary.Key>
+                <devtoolbox:ThemePartKeyExtension
+                    AssemblyName="EyeDropper.Bootstrapper.UI"
+                    Path="/Themes/Dark/Generic.xaml"
+                    ThemeName="Dark" />
+            </devtoolbox:ThemePartResourceDictionary.Key>
+        </devtoolbox:ThemePartResourceDictionary>
+        <devtoolbox:ThemePartResourceDictionary>
+            <devtoolbox:ThemePartResourceDictionary.Key>
+                <devtoolbox:ThemePartKeyExtension
+                    AssemblyName="EyeDropper.Bootstrapper.UI"
+                    Path="/Themes/Light/Generic.xaml"
+                    ThemeName="Light" />
+            </devtoolbox:ThemePartResourceDictionary.Key>
+        </devtoolbox:ThemePartResourceDictionary>
+        <ResourceDictionary Source="pack://application:,,,/EyeDropper.Bootstrapper.UI;component/Themes/Styles/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/EyeDropper.Bootstrapper.UI;component/Themes/Styles/Page.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/EyeDropper.Bootstrapper.UI;component/Themes/Styles/ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/EyeDropper.Bootstrapper.UI;component/Themes/Styles/Separator.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

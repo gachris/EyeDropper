@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Assets\app-icon.ico</ApplicationIcon>
+		<AssemblyName>EyeDropper</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Hosting" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EyeDropper.UI\EyeDropper.UI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Assets\app-icon.ico" />
+	</ItemGroup>
+
+</Project>

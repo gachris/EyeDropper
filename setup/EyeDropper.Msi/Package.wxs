@@ -1,0 +1,45 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+	<Package
+		Id="EyeDropper"
+		Name="$(var.Title)"
+		Language="1033"
+		Version="$(var.ProductVersion)"
+		Manufacturer="$(var.Company)"
+		UpgradeCode="$(var.UpgradeCode)"
+		Compressed="yes"
+		Scope="perMachine"
+		InstallerVersion="200">
+		
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+		<MediaTemplate />
+
+		<Property Id="CREATEDESKTOPSHORTCUT" Value="1" />
+		<Property Id="CREATESTARTMENUSHORTCUT" Value="1" />
+		<Property Id="LAUNCHONSTARTUP" Value="1" />
+		
+		<Feature
+			Id="AppFeature"
+			Title="[ProductName]"
+			Level="1"
+			AllowAdvertise="no"
+			AllowAbsent="no">
+			<ComponentGroupRef Id="ApplicationFilesComponentGroup" />
+			<ComponentRef Id="DesktopShortcutComponent" />
+			<ComponentRef Id="StartMenuShortcutComponent" />
+			<ComponentRef Id="AutoLaunchComponent" />
+		</Feature>
+	</Package>
+
+	<Fragment>
+		<Icon Id="appicon.ico" SourceFile="appicon.ico" />
+	</Fragment>
+	
+	<Fragment>
+		<ComponentGroup
+			Id="ApplicationFilesComponentGroup"
+			Directory="INSTALLFOLDER">
+			<Files Include="$(var.ApplicationOutputPath)\**\*.*" />
+		</ComponentGroup>
+	</Fragment>
+</Wix>

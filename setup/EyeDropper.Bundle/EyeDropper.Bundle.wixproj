@@ -1,0 +1,41 @@
+﻿<Project Sdk="WixToolset.Sdk/6.0.0">
+	<PropertyGroup>
+		<OutputName>Setup.EyeDropper</OutputName>
+		<OutputType>Bundle</OutputType>
+		<OutputPath>$(SetupOutputPath)</OutputPath>
+		<EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+		<HarvestDirectoryAdditionalOptions>-generate payloadgroup</HarvestDirectoryAdditionalOptions>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DefineConstants>
+			ProductVersion=$(ProductVersion);
+			Company=$(Company);
+			UpgradeCode=$(UpgradeCode);
+			LicenseUrl=$(LicenseUrl);
+			Title=$(Title)
+		</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="appicon.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="WixToolset.Bal.wixext" />
+		<PackageReference Include="WixToolset.Heat" />
+		<PackageReference Include="WixToolset.NetFx.wixext" />
+		<PackageReference Include="WixToolset.UI.wixext" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\EyeDropper.Bootstrapper.Host\EyeDropper.Bootstrapper.Host.csproj" />
+		<ProjectReference Include="..\EyeDropper.Msi\EyeDropper.Msi.wixproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<HarvestDirectory Include="..\EyeDropper.Bootstrapper.Host\bin\$(Configuration)">
+			<PreprocessorVariable>var.EyeDropper.Bootstrapper.Host.TargetDir</PreprocessorVariable>
+			<ComponentGroupName>BootstrapperApp</ComponentGroupName>
+			<DirectoryRefId>InstallerPayload</DirectoryRefId>
+			<SuppressCom>true</SuppressCom>
+			<SuppressRegistry>true</SuppressRegistry>
+			<SuppressRootDirectory>true</SuppressRootDirectory>
+		</HarvestDirectory>
+	</ItemGroup>
+</Project>

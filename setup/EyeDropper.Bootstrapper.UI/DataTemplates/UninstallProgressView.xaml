@@ -1,0 +1,61 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
+    xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:viewModels="clr-namespace:EyeDropper.Bootstrapper.UI.ViewModels">
+
+    <DataTemplate DataType="{x:Type viewModels:UninstallProgressViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="46,24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    x:Name="ProgressHeader"
+                    Grid.Row="0"
+                    Padding="0,5"
+                    Text="{x:Static loc:Resources.Progress_tracker}" />
+                <ProgressBar
+                    Grid.Row="1"
+                    Height="6"
+                    Margin="0,10,0,0"
+                    Maximum="100"
+                    Minimum="0"
+                    Style="{StaticResource ProgressBarStyle}"
+                    Value="{Binding Progress}" />
+            </Grid>
+            <Separator
+                Grid.Row="1"
+                Margin="0"
+                Style="{DynamicResource SimpleHorizontalSeparatorStyle}" />
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    MinWidth="80"
+                    Margin="4,14,22,14"
+                    Padding="6"
+                    devtoolbox:UIElementHelper.CornerRadius="2"
+                    Command="{Binding CancelCommand}"
+                    Content="{x:Static loc:Resources.Cancel}"
+                    FontSize="14" />
+            </StackPanel>
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Canceled}" Value="True">
+                <Setter TargetName="ProgressHeader" Property="Text" Value="{x:Static loc:Resources.Canceling}" />
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+</ResourceDictionary>

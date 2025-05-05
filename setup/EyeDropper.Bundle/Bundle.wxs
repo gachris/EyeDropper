@@ -1,0 +1,67 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+	<Bundle
+		Name="$(var.Title)"
+		Version="$(var.ProductVersion)"
+		Manufacturer="$(var.Company)"
+		UpgradeCode="$(var.UpgradeCode)"
+		Compressed="yes"
+        IconSourceFile="appicon.ico">
+		
+		<Variable
+			Name="License"
+			bal:Overridable="no"
+			Type="string"
+			Value="$(var.LicenseUrl)" />
+
+		<Variable 
+			Name="InstallFolder" 
+			bal:Overridable="yes" 
+			Type="string" 
+			Value="C:\Program Files\EyeDropper" />
+		
+		<Variable 
+			Name="CreateDesktopShortcut"
+			bal:Overridable="yes"
+			Type="numeric"
+			Value="1" />
+
+		<Variable
+			Name="CreateStartMenuShortcut"
+			bal:Overridable="yes"
+			Type="numeric"
+			Value="1" />
+
+		<Variable 
+			Name="LaunchOnStartup"
+			bal:Overridable="yes"
+			Type="numeric" 
+			Value="1" />
+
+		<BootstrapperApplicationRef Id="EyeDropper.Bootstrapper.Host">
+			<PayloadGroupRef Id="InstallerPayload" />
+		</BootstrapperApplicationRef>
+		
+		<Chain>
+			<MsiPackage
+				Id="EyeDropper" 
+				Name="$(var.Title)"
+				SourceFile="$(var.EyeDropper.Msi.TargetPath)"
+				bal:PrereqPackage="yes"
+				Compressed="yes">
+				<MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]"/>
+				<MsiProperty Name="CREATEDESKTOPSHORTCUT" Value="[CreateDesktopShortcut]"/>
+				<MsiProperty Name="CREATESTARTMENUSHORTCUT" Value="[CreateStartMenuShortcut]"/>
+				<MsiProperty Name="LAUNCHONSTARTUP" Value="[LaunchOnStartup]"/>
+			</MsiPackage>
+		</Chain>
+	</Bundle>
+
+	<Fragment>
+		<BootstrapperApplication
+			  Id="EyeDropper.Bootstrapper.Host"
+			  Name="EyeDropper.Bootstrapper.Host"
+			  SourceFile="EyeDropper.Bootstrapper.Host.exe">
+			<bal:WixPrerequisiteBootstrapperApplication LogoFile="appicon.ico" Theme="none" />
+		</BootstrapperApplication>
+	</Fragment>
+</Wix>

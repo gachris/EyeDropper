@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EyeDropper.Host": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

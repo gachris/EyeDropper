@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<OutputType>WinExe</OutputType>
+		<AssemblyName>EyeDropper.Bootstrapper.Host</AssemblyName>
+		<RootNamespace>EyeDropper.Bootstrapper.Host</RootNamespace>
+		<AssemblyTitle>EyeDropper.Bootstrapper.Host</AssemblyTitle>
+		<DebugType>embedded</DebugType>
+		<Description>WiX Bootstrapper Application</Description>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<UseWPF>true</UseWPF>
+		<SelfContained>false</SelfContained>
+		<RollForward>Major</RollForward>
+		<ApplicationIcon>Assets\appicon.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ApplicationDefinition Remove="App.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Assets\appicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Include="App.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Hosting" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EyeDropper.Bootstrapper.UI\EyeDropper.Bootstrapper.UI.csproj" />
+	</ItemGroup>
+
+</Project>

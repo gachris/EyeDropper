@@ -1,0 +1,98 @@
+
+name: Action to build and publish the project as a nuget package to github package registry
+
+on:
+  push:
+    branches:
+      - master
+      - 'release/*'
+  pull_request:
+    branches:
+      - master
+      - 'release/*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+        Configuration: Release
+    outputs:
+        bundle-version: ${{ steps.get_version.outputs.version }}
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Parse version from branch (Bash)
+      shell: bash
+      run: |
+        if [[ "$GITHUB_REF" == refs/heads/release/* ]]; then
+           # strip refs/heads/release/, optional leading v, then split
+           RAW=${GITHUB_REF#refs/heads/release/}
+           RAW=${RAW#v}
+           IFS='.' read -r MAJOR MINOR <<< "$RAW"
+        fi
+
+        # default if empty or unset
+        MAJOR=${MAJOR:-1}
+        MINOR=${MINOR:-0}
+
+        echo "MajorVersion=$MAJOR" >> $GITHUB_ENV
+        echo "MinorVersion=$MINOR" >> $GITHUB_ENV
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Restore dependencies
+      run: msbuild EyeDropper.sln /t:Restore
+    - name: Build
+      run: msbuild EyeDropper.sln /p:Configuration=${{ env.Configuration }} /p:MajorVersion=${{ env.MajorVersion }} /p:MinorVersion=${{ env.MinorVersion }} /p:BuildNumber=${{ github.run_number }}
+    - name: Test
+      run: dotnet test EyeDropper.sln --no-build --configuration ${{ env.Configuration }} --verbosity normal
+    - name: Restore dependencies
+      run: msbuild EyeDropper.Setup.sln /t:Restore
+    - name: Build
+      run: msbuild EyeDropper.Setup.sln /p:Configuration=${{ env.Configuration }} /p:MajorVersion=${{ env.MajorVersion }} /p:MinorVersion=${{ env.MinorVersion }} /p:BuildNumber=${{ github.run_number }}
+    - name: Upload build to GitHub
+      uses: actions/upload-artifact@v4
+      with:
+        name: setup
+        path: .setup/${{ env.Configuration }}/
+    - name: Get stamped version from the built EXE
+      id: get_version
+      shell: bash
+      run: |
+        version=$(powershell -NoProfile -Command "(Get-Item '.build/$Configuration/EyeDropper.exe').VersionInfo.FileVersion")
+        echo "Found version -> $version"
+        echo "version=$version" >> $GITHUB_OUTPUT
+
+  release:
+   runs-on: windows-latest
+   needs: build
+   if: startsWith(github.ref, 'refs/heads/release/')
+    
+   steps:  
+   - name: Download setup artifact
+     uses: actions/download-artifact@v4
+     with:
+       name: setup
+       path: ./setup
+   - name: Create GitHub Release
+     id: create_release
+     uses: actions/create-release@v1
+     env:
+       GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+     with:
+       tag_name: v${{ needs.build.outputs.bundle-version }}
+       release_name: Release v${{ needs.build.outputs.bundle-version }}
+       draft: false
+       prerelease: false
+   - name: Upload Installer to Release
+     uses: actions/upload-release-asset@v1
+     env:
+       GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+     with:
+       upload_url: ${{ steps.create_release.outputs.upload_url }}
+       asset_path: ./setup/Setup.EyeDropper.exe
+       asset_name: Setup.EyeDropper.exe
+       asset_content_type: application/octet-stream
