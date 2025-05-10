@@ -3,14 +3,15 @@ using System.Reflection;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DevToolbox.Core.Contracts;
+using DevToolbox.Core.Media;
 using DevToolbox.Wpf.Controls;
 using DevToolbox.Wpf.Media;
+using DevToolbox.Wpf.Windows.ViewModels;
 using EyeDropper.Application.Commands;
-using EyeDropper.ApplicationFlow;
+using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
-using EyeDropper.UI.Contracts;
-using EyeDropper.UI.DialogWindows.ViewModels;
 using MediatR;
 using Microsoft.Win32;
 
@@ -30,7 +31,7 @@ public partial class SettingsViewModel : DialogViewModel
     private readonly IMediator _mediator;
     private readonly IAppUISettings _appUISettings;
 
-    private ElementTheme _theme;
+    private Theme _theme;
 
     /// <summary>
     /// Gets or sets a value indicating whether the application will launch on Windows startup.
@@ -156,7 +157,7 @@ public partial class SettingsViewModel : DialogViewModel
     /// <summary>
     /// Gets the current UI theme.
     /// </summary>
-    public ElementTheme Theme
+    public Theme Theme
     {
         get => _theme;
         private set => SetProperty(ref _theme, value, nameof(Theme));
@@ -413,7 +414,7 @@ public partial class SettingsViewModel : DialogViewModel
     /// </summary>
     /// <param name="theme">The new <see cref="ElementTheme"/> to apply.</param>
     [RelayCommand]
-    private async Task ChangeTheme(ElementTheme theme)
+    private async Task ChangeTheme(Theme theme)
     {
         await _appUISettings.SetThemeAsync(theme);
     }
@@ -423,7 +424,7 @@ public partial class SettingsViewModel : DialogViewModel
     #region Event Handlers
 
     /// <summary>
-    /// Handles theme change events from the <see cref="DevToolbox.Wpf.Media.ThemeManager"/>.
+    /// Handles theme change events from the <see cref="ThemeManager"/>.
     /// Updates the <see cref="Theme"/> property accordingly.
     /// </summary>
     private void ThemeManager_RequestedThemeChanged(object? sender, EventArgs e)

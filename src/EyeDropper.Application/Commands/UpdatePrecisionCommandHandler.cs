@@ -1,4 +1,4 @@
-﻿using EyeDropper.Application.Contracts;
+﻿using DevToolbox.Core.Contracts;
 using EyeDropper.Core.RuntimeOptions;
 using Microsoft.Extensions.Logging;
 

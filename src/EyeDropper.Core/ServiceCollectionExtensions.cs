@@ -1,4 +1,4 @@
-﻿using EyeDropper.ApplicationFlow;
+﻿using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.Client;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,7 +7,7 @@ namespace EyeDropper.Core;
 /// <summary>
 /// Provides extension methods to register the core EyeDropper services with an <see cref="IServiceCollection"/>.
 /// </summary>
-public static class Extensions
+public static class ServiceCollectionExtensions
 {
     /// <summary>
     /// Adds the core EyeDropper application services to the specified <see cref="IServiceCollection"/>.

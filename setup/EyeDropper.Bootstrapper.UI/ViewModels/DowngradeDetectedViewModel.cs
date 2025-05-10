@@ -1,14 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
 
 /// <summary>
 /// ViewModel displayed when a downgrade of the application version is detected.
 /// </summary>
-public partial class DowngradeDetectedViewModel : ObservableObject, IViewModelAware
+public partial class DowngradeDetectedViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

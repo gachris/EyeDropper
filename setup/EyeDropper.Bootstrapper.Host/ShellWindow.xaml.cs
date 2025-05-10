@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Windows;
+using DevToolbox.Core.Contracts;
 using DevToolbox.Wpf.Windows;
 using EyeDropper.Bootstrapper.Core;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
 using EyeDropper.Bootstrapper.UI.ViewModels;
 using WixToolset.BootstrapperApplicationApi;
 

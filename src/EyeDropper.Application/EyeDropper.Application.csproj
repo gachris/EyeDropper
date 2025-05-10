@@ -9,10 +9,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommonServiceLocator" />
 		<PackageReference Include="MediatR" />
 		<PackageReference Include="Microsoft.Extensions.Logging" />
-		<PackageReference Include="Newtonsoft.Json" />
 	</ItemGroup>
 
 </Project>

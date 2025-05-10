@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Interop;
 using CommonServiceLocator;
-using EyeDropper.Host.Helpers;
+using DevToolbox.Core.Contracts;
+using DevToolbox.Wpf;
 using EyeDropper.Host.Interop;
 using EyeDropper.UI.Contracts;
 using Hardcodet.Wpf.TaskbarNotification;

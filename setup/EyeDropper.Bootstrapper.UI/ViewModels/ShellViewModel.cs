@@ -1,11 +1,10 @@
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 using WixToolset.BootstrapperApplicationApi;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
@@ -19,7 +18,7 @@ public partial class ShellViewModel : ObservableObject
 
     private readonly INavigationService _navigationService;
     private readonly IWpfBootstrapperApplicationManager _bootstrapperApplicationManager;
-    private IViewModelAware? _currentPageViewModel;
+    private INavigationViewModelAware? _currentPageViewModel;
     private bool _shouldAddBackEntry;
 
     #endregion
@@ -34,7 +33,7 @@ public partial class ShellViewModel : ObservableObject
     /// <summary>
     /// Gets or sets the current page's view model.
     /// </summary>
-    public IViewModelAware? CurrentPageViewModel
+    public INavigationViewModelAware? CurrentPageViewModel
     {
         get => _currentPageViewModel;
         private set
@@ -96,9 +95,9 @@ public partial class ShellViewModel : ObservableObject
     /// </summary>
     /// <param name="sender">The event sender.</param>
     /// <param name="e">Navigation event arguments.</param>
-    private async void NavigationService_Navigated(object sender, NavigationEventArgs e)
+    private async void NavigationService_Navigated(object? sender, DevToolbox.Core.Contracts.NavigationEventArgs e)
     {
-        if (e.Content is Page page && page.DataContext is IViewModelAware viewModel)
+        if (e.Content is Page page && page.DataContext is INavigationViewModelAware viewModel)
         {
             CurrentPageViewModel = viewModel;
         }

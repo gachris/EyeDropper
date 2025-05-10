@@ -2,14 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
 
 /// <summary>
 /// ViewModel for initiating the uninstallation process.
 /// </summary>
-public partial class UninstallViewModel : ObservableObject, IViewModelAware
+public partial class UninstallViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

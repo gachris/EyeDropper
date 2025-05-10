@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Helpers;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
@@ -11,7 +11,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// ViewModel displayed when the installation completes successfully.
 /// Provides commands to launch the installed application or close the bootstrapper.
 /// </summary>
-public partial class InstallSuccessfulViewModel : ObservableObject, IViewModelAware
+public partial class InstallSuccessfulViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

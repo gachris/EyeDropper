@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:commands="clr-namespace:DevToolbox.Wpf.Windows.Commands;assembly=DevToolbox.Wpf"
     xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
     xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
     xmlns:viewModels="clr-namespace:EyeDropper.UI.ViewModels">
@@ -65,9 +66,9 @@
                         Margin="4,0,0,0"
                         Padding="6"
                         devtoolbox:UIElementHelper.CornerRadius="2"
+                        Command="commands:DialogWindowCommands.Cancel"
                         Content="{x:Static loc:Resources.Cancel}"
-                        FontSize="{DynamicResource FontSize14}"
-                        IsCancel="True" />
+                        FontSize="{DynamicResource FontSize14}" />
                 </StackPanel>
             </DockPanel>
         </Grid>

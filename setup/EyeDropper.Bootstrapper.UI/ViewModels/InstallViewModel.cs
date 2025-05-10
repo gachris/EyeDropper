@@ -2,14 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
 
 /// <summary>
 /// ViewModel for the initial install page, displaying version information and navigation actions.
 /// </summary>
-public partial class InstallViewModel : ObservableObject, IViewModelAware
+public partial class InstallViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

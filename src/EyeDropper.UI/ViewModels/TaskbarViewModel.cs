@@ -2,18 +2,19 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DevToolbox.Core.Contracts;
 using DevToolbox.Wpf.Controls;
+using DevToolbox.Wpf.Windows;
 using EyeDropper.Application.Commands;
-using EyeDropper.ApplicationFlow;
+using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
 using EyeDropper.Localization.Properties;
 using EyeDropper.UI.Contracts;
-using EyeDropper.UI.DialogWindows;
-using EyeDropper.UI.DialogWindows.Services;
 using MediatR;
 using NHotkey;
 using NHotkey.Wpf;
+using System.Threading.Tasks;
 
 namespace EyeDropper.UI.ViewModels;
 
@@ -34,7 +35,8 @@ public partial class TaskbarViewModel : ObservableObject
         MinWidth = 620,
         SizeToContent = SizeToContent.WidthAndHeight,
         ResizeMode = ResizeMode.NoResize,
-        WindowTitle = Resources.Advance_Color_Picker
+        WindowTitle = Resources.Advance_Color_Picker,
+        ShowIcon = true
     };
 
     private static readonly DialogOptions SettingsDialogOptions = new()
@@ -44,7 +46,8 @@ public partial class TaskbarViewModel : ObservableObject
         MinHeight = 336,
         MinWidth = 520,
         ResizeMode = ResizeMode.CanResize,
-        WindowTitle = Resources.Eye_dropper
+        WindowTitle = Resources.Eye_dropper,
+        ShowIcon = true
     };
 
     private readonly IRuntimeOptionsState _runtimeInfo;
@@ -129,7 +132,7 @@ public partial class TaskbarViewModel : ObservableObject
     }
 
     #endregion
-    
+
     #region Relay Commands
 
     /// <summary>
@@ -155,17 +158,16 @@ public partial class TaskbarViewModel : ObservableObject
     /// Command to open or activate the advanced color picker dialog.
     /// </summary>
     [RelayCommand]
-    private void OpenAdvanceColorPicker()
+    private async Task OpenAdvanceColorPicker()
     {
-        if (_dialogService.TryGetDialogByViewModel(
-                ViewModelLocator.AdvanceColorPickerDialogViewModel,
-                out var dialogWindow))
+        if (_dialogService.TryGetDialogByContent(ViewModelLocator.AdvanceColorPickerDialogViewModel, out var dialogWindow)
+            && dialogWindow is Window window)
         {
-            dialogWindow.Activate();
+            window.Activate();
         }
         else
         {
-            _dialogService.ShowDialog(
+            await _dialogService.ShowDialogAsync(
                 null,
                 ViewModelLocator.AdvanceColorPickerDialogViewModel,
                 AdvanceColorPickerDialogOptions);
@@ -176,17 +178,16 @@ public partial class TaskbarViewModel : ObservableObject
     /// Command to open or activate the settings dialog.
     /// </summary>
     [RelayCommand]
-    private void OpenSettings()
+    private async Task OpenSettings()
     {
-        if (_dialogService.TryGetDialogByViewModel(
-                ViewModelLocator.SettingsViewModel,
-                out var dialogWindow))
+        if (_dialogService.TryGetDialogByContent(ViewModelLocator.SettingsViewModel, out var dialogWindow)
+            && dialogWindow is Window window)
         {
-            dialogWindow.Activate();
+            window.Activate();
         }
         else
         {
-            _dialogService.ShowDialog(
+            await _dialogService.ShowDialogAsync(
                 null,
                 ViewModelLocator.SettingsViewModel,
                 SettingsDialogOptions);

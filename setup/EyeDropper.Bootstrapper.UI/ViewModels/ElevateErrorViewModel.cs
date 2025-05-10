@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Helpers;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
@@ -9,7 +9,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// <summary>
 /// ViewModel displayed when elevation fails due to insufficient permissions or other errors.
 /// </summary>
-public partial class ElevateErrorViewModel : ObservableObject, IViewModelAware
+public partial class ElevateErrorViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

@@ -1,15 +1,15 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:constants="clr-namespace:EyeDropper.UI.Constants"
-    xmlns:constants1="clr-namespace:EyeDropper.Application.Constants;assembly=EyeDropper.Application"
-    xmlns:converters="clr-namespace:EyeDropper.UI.Converters"
+    xmlns:constants="clr-namespace:EyeDropper.Application.Constants;assembly=EyeDropper.Application"
+    xmlns:constants1="clr-namespace:EyeDropper.UI.Constants"
     xmlns:devtoolbox="http://devtoolbox.wpf/winfx/2021/xaml/presentation"
     xmlns:loc="clr-namespace:EyeDropper.Localization.Properties;assembly=EyeDropper.Localization"
+    xmlns:media="clr-namespace:DevToolbox.Core.Media;assembly=DevToolbox.Core"
     xmlns:viewModels="clr-namespace:EyeDropper.UI.ViewModels">
 
-    <devtoolbox:EnumBooleanConverter x:Key="EnumBooleanConverter" />
-    <converters:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter" />
+    <devtoolbox:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    <devtoolbox:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter" />
 
     <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
         <ScrollViewer
@@ -55,8 +55,8 @@
                                     HorizontalAlignment="Left"
                                     VerticalContentAlignment="Center"
                                     Command="{Binding ChangeThemeCommand}"
-                                    CommandParameter="{x:Static devtoolbox:ElementTheme.Light}"
-                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Light'}">
+                                    CommandParameter="{x:Static media:Theme.Light}"
+                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='Light'}">
                                     <TextBlock FontSize="{DynamicResource FontSize14}" Text="{x:Static loc:Resources.Light}" />
                                 </RadioButton>
                                 <RadioButton
@@ -64,8 +64,8 @@
                                     HorizontalAlignment="Left"
                                     VerticalContentAlignment="Center"
                                     Command="{Binding ChangeThemeCommand}"
-                                    CommandParameter="{x:Static devtoolbox:ElementTheme.Dark}"
-                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Dark'}">
+                                    CommandParameter="{x:Static media:Theme.Dark}"
+                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='Dark'}">
                                     <TextBlock FontSize="{DynamicResource FontSize14}" Text="{x:Static loc:Resources.Dark}" />
                                 </RadioButton>
                                 <RadioButton
@@ -73,8 +73,8 @@
                                     HorizontalAlignment="Left"
                                     VerticalContentAlignment="Center"
                                     Command="{Binding ChangeThemeCommand}"
-                                    CommandParameter="{x:Static devtoolbox:ElementTheme.WindowsDefault}"
-                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='WindowsDefault'}">
+                                    CommandParameter="{x:Static media:Theme.Default}"
+                                    IsChecked="{Binding Path=Theme, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='Default'}">
                                     <TextBlock FontSize="{DynamicResource FontSize14}" Text="{x:Static loc:Resources.Windows_default}" />
                                 </RadioButton>
                             </StackPanel>
@@ -159,7 +159,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         DisplayMemberPath="Value"
-                                        ItemsSource="{Binding Source={x:Static constants:SettingsConstants.ColorFormats}}"
+                                        ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.ColorFormats}}"
                                         SelectedValue="{Binding ColorFormat}"
                                         SelectedValuePath="Key" />
                                     <TextBlock
@@ -172,8 +172,8 @@
                                         Grid.Column="2"
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
-                                        IsEnabled="{Binding ColorFormat, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='RGBFloat'}"
-                                        ItemsSource="{Binding Source={x:Static constants:SettingsConstants.Precisions}}"
+                                        IsEnabled="{Binding ColorFormat, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='RGBFloat'}"
+                                        ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.Precisions}}"
                                         SelectedValue="{Binding Precision}" />
                                 </Grid>
                                 <Grid
@@ -195,7 +195,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.HTMLTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.HTMLTemplates}}"
                                         SelectedValue="{Binding HTMLTemplate}"
                                         Text="{Binding HTMLTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='HTML'}" />
@@ -204,7 +204,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.HexTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.HexTemplates}}"
                                         SelectedValue="{Binding HexTemplate}"
                                         Text="{Binding HexTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='Hex'}" />
@@ -213,7 +213,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.DelphiHexTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.DelphiHexTemplates}}"
                                         SelectedValue="{Binding DelphiHexTemplate}"
                                         Text="{Binding DelphiHexTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='DelphiHex'}" />
@@ -222,7 +222,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.VBHexTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.VBHexTemplates}}"
                                         SelectedValue="{Binding VBHexTemplate}"
                                         Text="{Binding VBHexTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='VBHex'}" />
@@ -231,7 +231,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.RGBTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.RGBTemplates}}"
                                         SelectedValue="{Binding RGBTemplate}"
                                         Text="{Binding RGBTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='RGB'}" />
@@ -240,7 +240,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.RGBFloatTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.RGBFloatTemplates}}"
                                         SelectedValue="{Binding RGBFloatTemplate}"
                                         Text="{Binding RGBFloatTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='RGBFloat'}" />
@@ -249,7 +249,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.HSVTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.HSVTemplates}}"
                                         SelectedValue="{Binding HSVTemplate}"
                                         Text="{Binding HSVTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='HSV'}" />
@@ -258,7 +258,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.HSLTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.HSLTemplates}}"
                                         SelectedValue="{Binding HSLTemplate}"
                                         Text="{Binding HSLTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='HSL'}" />
@@ -267,7 +267,7 @@
                                         VerticalAlignment="Stretch"
                                         devtoolbox:UIElementHelper.CornerRadius="2"
                                         IsEditable="True"
-                                        ItemsSource="{Binding Source={x:Static constants1:ColorTemplates.LongTemplates}}"
+                                        ItemsSource="{Binding Source={x:Static constants:ColorTemplates.LongTemplates}}"
                                         SelectedValue="{Binding LongTemplate}"
                                         Text="{Binding LongTemplate}"
                                         Visibility="{Binding ColorFormat, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter='Long'}" />
@@ -304,19 +304,19 @@
                                     Grid.Column="0"
                                     Margin="0,0,4,0"
                                     devtoolbox:UIElementHelper.CornerRadius="2"
-                                    ItemsSource="{Binding Source={x:Static constants:SettingsConstants.ModifierKeys}}"
+                                    ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.ModifierKeys}}"
                                     SelectedValue="{Binding PrimaryModifierKey}" />
                                 <ComboBox
                                     Grid.Column="1"
                                     Margin="4,0,4,0"
                                     devtoolbox:UIElementHelper.CornerRadius="2"
-                                    ItemsSource="{Binding Source={x:Static constants:SettingsConstants.ModifierKeys}}"
+                                    ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.ModifierKeys}}"
                                     SelectedValue="{Binding SecondaryModifierKey}" />
                                 <ComboBox
                                     Grid.Column="2"
                                     Margin="4,0,4,0"
                                     devtoolbox:UIElementHelper.CornerRadius="2"
-                                    ItemsSource="{Binding Source={x:Static constants:SettingsConstants.ModifierKeys}}"
+                                    ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.ModifierKeys}}"
                                     SelectedValue="{Binding TertiaryModifierKey}" />
                                 <TextBlock
                                     Grid.Column="3"
@@ -327,7 +327,7 @@
                                     Grid.Column="4"
                                     Margin="4,0,0,0"
                                     devtoolbox:UIElementHelper.CornerRadius="2"
-                                    ItemsSource="{Binding Source={x:Static constants:SettingsConstants.HotKeys}}"
+                                    ItemsSource="{Binding Source={x:Static constants1:SettingsConstants.HotKeys}}"
                                     SelectedValue="{Binding HotKey}" />
                             </Grid>
                         </Border>

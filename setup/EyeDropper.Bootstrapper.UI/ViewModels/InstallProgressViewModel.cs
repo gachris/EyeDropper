@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Localization.Properties;
 using WixToolset.BootstrapperApplicationApi;
 using Application = System.Windows.Application;
@@ -14,7 +14,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// <summary>
 /// ViewModel for displaying installation progress and handling cancellation.
 /// </summary>
-public partial class InstallProgressViewModel : ObservableObject, IViewModelAware
+public partial class InstallProgressViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

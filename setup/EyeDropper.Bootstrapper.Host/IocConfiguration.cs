@@ -1,8 +1,8 @@
 ﻿using CommonServiceLocator;
+using DevToolbox.Core;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.Host.WixToolset;
 using EyeDropper.Bootstrapper.UI;
-using EyeDropper.Bootstrapper.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
