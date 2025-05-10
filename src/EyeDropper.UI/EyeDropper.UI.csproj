@@ -11,14 +11,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\DevToolbox.Wpf\src\DevToolbox.Wpf\DevToolbox.Wpf.csproj" />
 		<ProjectReference Include="..\EyeDropper.Application\EyeDropper.Application.csproj" />
 		<ProjectReference Include="..\EyeDropper.Localization\EyeDropper.Localization.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="DevToolbox.Wpf" />
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
-		<PackageReference Include="CommunityToolkit.Mvvm" />
 		<PackageReference Include="Hardcodet.NotifyIcon.Wpf" />
 		<PackageReference Include="NHotkey.Wpf" />
 	</ItemGroup>

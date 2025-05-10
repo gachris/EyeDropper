@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Helpers;
 using EyeDropper.Localization.Properties;
 
@@ -11,7 +11,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// <summary>
 /// ViewModel for the installation details page, allowing the user to select installation options and start installation.
 /// </summary>
-public partial class InstallDetailsViewModel : ObservableObject, IViewModelAware
+public partial class InstallDetailsViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

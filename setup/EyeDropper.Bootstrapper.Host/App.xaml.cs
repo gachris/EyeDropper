@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using CommonServiceLocator;
+using DevToolbox.Wpf;
 using DevToolbox.Wpf.Media;
-using EyeDropper.Bootstrapper.Host.Helpers;
 
 namespace EyeDropper.Bootstrapper.Host;
 

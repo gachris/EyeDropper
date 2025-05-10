@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
 
@@ -10,7 +10,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// ViewModel displayed when the user cancels an installation.
 /// Provides options to close the application or retry installation.
 /// </summary>
-public partial class InstallCanceledViewModel : ObservableObject, IViewModelAware
+public partial class InstallCanceledViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

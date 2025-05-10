@@ -1,5 +1,5 @@
-﻿using EyeDropper.Application.Contracts;
-using EyeDropper.Application.Services;
+﻿using DevToolbox.Core.Contracts;
+using DevToolbox.Core.Services;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ namespace EyeDropper.Application;
 /// <summary>
 /// Provides extension methods to register application-layer services and MediatR behaviors.
 /// </summary>
-public static class Extensions
+public static class ServiceCollectionExtensions
 {
     /// <summary>
     /// Adds application services, MediatR handlers, and logging to the specified <see cref="IServiceCollection"/>.
@@ -19,7 +19,7 @@ public static class Extensions
     /// <returns>The original <see cref="IServiceCollection"/>, allowing for chained method calls.</returns>
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Extensions).Assembly));
+        services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
 
         services.AddSingleton<IFileService, FileService>();
         services.AddSingleton<ILocalSettingsService, LocalSettingsService>();

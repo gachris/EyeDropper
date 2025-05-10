@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EyeDropper.Bootstrapper.Core.Contracts;
-using EyeDropper.Bootstrapper.UI.Contracts;
+using DevToolbox.Core.Contracts;
 
 namespace EyeDropper.Bootstrapper.UI.ViewModels;
 
@@ -9,7 +9,7 @@ namespace EyeDropper.Bootstrapper.UI.ViewModels;
 /// ViewModel displayed when the user cancels an uninstallation.
 /// Provides a command to close the bootstrapper application.
 /// </summary>
-public partial class UninstallCanceledViewModel : ObservableObject, IViewModelAware
+public partial class UninstallCanceledViewModel : ObservableObject, INavigationViewModelAware
 {
     #region Fields/Consts
 

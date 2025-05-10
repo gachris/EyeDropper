@@ -6,7 +6,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="WixToolset.BootstrapperApplicationApi" />
-		<PackageReference Include="WixToolset.Dtf.WindowsInstaller" />
 	</ItemGroup>
 
 </Project>

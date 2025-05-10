@@ -22,7 +22,6 @@
 		<PackageReference Include="WixToolset.Bal.wixext" />
 		<PackageReference Include="WixToolset.Heat" />
 		<PackageReference Include="WixToolset.NetFx.wixext" />
-		<PackageReference Include="WixToolset.UI.wixext" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\EyeDropper.Bootstrapper.Host\EyeDropper.Bootstrapper.Host.csproj" />

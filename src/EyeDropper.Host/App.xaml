@@ -28,47 +28,47 @@
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.HTML}"
                             Header="{x:Static loc:Resources.HTML}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HTML'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='HTML'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.Hex}"
                             Header="{x:Static loc:Resources.Hex}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Hex'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='Hex'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.DelphiHex}"
                             Header="{x:Static loc:Resources.Delphi_Hex}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='DelphiHex'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='DelphiHex'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.VBHex}"
                             Header="{x:Static loc:Resources.VB_Hex}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='VBHex'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='VBHex'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.RGB}"
                             Header="{x:Static loc:Resources.RGB}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='RGB'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='RGB'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.RGBFloat}"
                             Header="{x:Static loc:Resources.RGB_Float}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='RGBFloat'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='RGBFloat'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.HSV}"
                             Header="{x:Static loc:Resources.HSV}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HSV'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='HSV'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.HSL}"
                             Header="{x:Static loc:Resources.HSL}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='HSL'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='HSL'}" />
                         <MenuItem
                             Command="{Binding SetColorFormatCommand}"
                             CommandParameter="{x:Static devtoolbox:ColorFormat.Long}"
                             Header="{x:Static loc:Resources.Long}"
-                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter='Long'}" />
+                            IsChecked="{Binding ColorFormat, Mode=OneWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter='Long'}" />
                         <Separator />
                         <MenuItem Command="{Binding OpenAdvanceColorPickerCommand}" Header="{x:Static loc:Resources.Advance_Color_Picker}" />
                         <Separator />

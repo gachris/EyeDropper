@@ -1,13 +1,14 @@
 ﻿using EyeDropper.Bootstrapper.UI.Constants;
-using EyeDropper.Bootstrapper.UI.Contracts;
-using EyeDropper.Bootstrapper.UI.Services;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.ViewModels;
 using EyeDropper.Bootstrapper.UI.Views;
 using Microsoft.Extensions.DependencyInjection;
+using DevToolbox.Core;
+using DevToolbox.Wpf.Services;
 
 namespace EyeDropper.Bootstrapper.UI;
 
-public static class Extensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddUI(this IServiceCollection services)
     {
@@ -55,17 +56,6 @@ public static class Extensions
         services.AddSingleton<DowngradeDetectedPage>();
         services.AddSingleton<ErrorPage>();
         services.AddSingleton<ElevateErrorPage>();
-
-        return services;
-    }
-
-    public static IServiceCollection AddPageService(this IServiceCollection services, Action<PageService>? configure = null)
-    {
-        var pageService = new PageService();
-
-        configure?.Invoke(pageService);
-
-        services.AddSingleton<IPageService>(pageService);
 
         return services;
     }
