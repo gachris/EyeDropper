@@ -11,7 +11,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\DevToolbox.Wpf\src\DevToolbox.Wpf\DevToolbox.Wpf.csproj" />
 		<ProjectReference Include="..\EyeDropper.Application\EyeDropper.Application.csproj" />
 		<ProjectReference Include="..\EyeDropper.Localization\EyeDropper.Localization.csproj" />
 	</ItemGroup>

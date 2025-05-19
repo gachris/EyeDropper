@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DevToolbox.Extensions.DependencyInjection" />
 		<PackageReference Include="DevToolbox.Wpf" />
 	</ItemGroup>
 

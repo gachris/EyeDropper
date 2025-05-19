@@ -3,7 +3,6 @@ using DevToolbox.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.ViewModels;
 using EyeDropper.Bootstrapper.UI.Views;
 using Microsoft.Extensions.DependencyInjection;
-using DevToolbox.Core;
 using DevToolbox.Wpf.Services;
 
 namespace EyeDropper.Bootstrapper.UI;

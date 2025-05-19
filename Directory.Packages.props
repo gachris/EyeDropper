@@ -4,8 +4,9 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="DevToolbox.Core" Version="1.0.2.1-alpha" />
-    <PackageVersion Include="DevToolbox.Wpf" Version="1.0.2.1-alpha" />
+    <PackageVersion Include="DevToolbox.Core" Version="1.0.2.5-alpha" />
+    <PackageVersion Include="DevToolbox.Extensions.DependencyInjection" Version="1.0.2.5-alpha" />
+    <PackageVersion Include="DevToolbox.Wpf" Version="1.0.2.5-alpha" />
     <PackageVersion Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
     <PackageVersion Include="MediatR" Version="12.5.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.4" />
