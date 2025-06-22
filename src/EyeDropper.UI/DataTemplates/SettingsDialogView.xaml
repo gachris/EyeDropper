@@ -13,7 +13,7 @@
 
     <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
         <ScrollViewer
-            Background="{DynamicResource SettingsView.ScrollViewerBackground}"
+            Background="Transparent"
             Focusable="False"
             HorizontalScrollBarVisibility="Disabled"
             VerticalScrollBarVisibility="Auto">

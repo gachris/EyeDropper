@@ -71,7 +71,7 @@ public partial class InstallViewModel : ObservableObject, INavigationViewModelAw
     /// <summary>
     /// Called when the view is navigated to.
     /// </summary>
-    public void OnNavigated()
+    public void OnNavigated(object? parameter = null)
     {
     }
 

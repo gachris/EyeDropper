@@ -71,7 +71,7 @@ public partial class UninstallProgressViewModel : ObservableObject, INavigationV
     /// <summary>
     /// Called when the view is navigated to.
     /// </summary>
-    public void OnNavigated()
+    public void OnNavigated(object? parameter = null)
     {
         Progress = 0;
 
