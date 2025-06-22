@@ -95,7 +95,7 @@ public partial class InstallDetailsViewModel : ObservableObject, INavigationView
     /// <summary>
     /// Called when the view is navigated to. Resets view state to defaults.
     /// </summary>
-    public void OnNavigated()
+    public void OnNavigated(object? parameter = null)
     {
         Agree = false;
         InstallFolder = _defaultInstallFolder;

@@ -49,7 +49,7 @@ public partial class InstallSuccessfulViewModel : ObservableObject, INavigationV
     /// <summary>
     /// Called when the view is navigated to.
     /// </summary>
-    public void OnNavigated()
+    public void OnNavigated(object? parameter = null)
     {
     }
 

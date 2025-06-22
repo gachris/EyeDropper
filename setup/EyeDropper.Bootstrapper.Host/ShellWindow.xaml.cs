@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Windows;
 using DevToolbox.Core.Contracts;
 using DevToolbox.Wpf.Windows;
+using DevToolbox.Wpf.Windows.Effects;
 using EyeDropper.Bootstrapper.Core;
 using EyeDropper.Bootstrapper.Core.Contracts;
 using EyeDropper.Bootstrapper.UI.ViewModels;
@@ -41,6 +42,8 @@ public partial class ShellWindow : WindowEx
 
         Chrome.ResizeBorderThickness = new Thickness(0);
         Chrome.CaptionHeight = 44;
+
+        WindowBehavior.SetWindowEffect(this, new Mica());
     }
 
     #region Methods
