@@ -5,6 +5,7 @@ using DevToolbox.Core.Services;
 using EyeDropper.Application;
 using EyeDropper.Core;
 using EyeDropper.UI;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -40,14 +41,13 @@ public static class IocConfiguration
             .UseContentRoot(AppContext.BaseDirectory)
             .ConfigureServices((context, services) =>
             {
-                var localSettingsOptionsConfiguration = context.Configuration.GetSection(nameof(LocalSettingsOptions));
-
-                if (SynchronizationContext.Current is not null)
+                var localSettingsOptions = context.Configuration.GetRequiredSection(nameof(LocalSettingsOptions)).Get<LocalSettingsOptions>();
+                if (localSettingsOptions is not null)
                 {
-                    services.AddSingleton(SynchronizationContext.Current);
+                    services.AddSingleton(localSettingsOptions);
                 }
 
-                services.Configure<LocalSettingsOptions>(localSettingsOptionsConfiguration);
+                services.AddSynchronizationContext();
                 services.AddSingleton<IApplication>(sp => (App)System.Windows.Application.Current);
                 services.AddSingleton(_ => ServiceLocator.Current);
                 services.AddCore();
