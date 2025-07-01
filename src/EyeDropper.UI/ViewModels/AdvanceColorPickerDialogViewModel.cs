@@ -1,10 +1,10 @@
 ﻿using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DevToolbox.Core.ApplicationFlow;
 using DevToolbox.Core.Windows;
 using DevToolbox.Wpf.Controls;
 using DevToolbox.Wpf.Windows.ViewModels;
-using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
 

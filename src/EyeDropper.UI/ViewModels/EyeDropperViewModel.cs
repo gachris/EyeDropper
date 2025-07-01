@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using DevToolbox.Wpf.Controls;
 using DevToolbox.Core.ApplicationFlow;
+using DevToolbox.Wpf.Controls;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
 

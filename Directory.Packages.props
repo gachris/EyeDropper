@@ -4,13 +4,13 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="DevToolbox.Core" Version="1.0.3.1-alpha" />
-    <PackageVersion Include="DevToolbox.Extensions.DependencyInjection" Version="1.0.3.1-alpha" />
-    <PackageVersion Include="DevToolbox.Wpf" Version="1.0.3.1-alpha" />
+    <PackageVersion Include="DevToolbox.Core" Version="1.0.3.5-alpha" />
+    <PackageVersion Include="DevToolbox.Extensions.DependencyInjection" Version="1.0.3.5-alpha" />
+    <PackageVersion Include="DevToolbox.Wpf" Version="1.0.3.5-alpha" />
     <PackageVersion Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
     <PackageVersion Include="MediatR" Version="12.5.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
     <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
     <PackageVersion Include="NHotkey.Wpf" Version="3.0.0" />

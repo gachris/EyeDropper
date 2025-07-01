@@ -1,7 +1,7 @@
-﻿using DevToolbox.Core.Contracts;
+﻿using DevToolbox.Core.ApplicationFlow;
+using DevToolbox.Core.Contracts;
 using EyeDropper.Application.Constants;
 using EyeDropper.Application.Dtos;
-using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
 using MediatR;

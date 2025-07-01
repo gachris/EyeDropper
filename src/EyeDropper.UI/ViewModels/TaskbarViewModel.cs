@@ -2,11 +2,11 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DevToolbox.Core.ApplicationFlow;
 using DevToolbox.Core.Contracts;
 using DevToolbox.Wpf.Controls;
 using DevToolbox.Wpf.Windows;
 using EyeDropper.Application.Commands;
-using DevToolbox.Core.ApplicationFlow;
 using EyeDropper.Core.RuntimeOptions;
 using EyeDropper.Core.RuntimeOptions.Events;
 using EyeDropper.Localization.Properties;
@@ -14,7 +14,6 @@ using EyeDropper.UI.Contracts;
 using MediatR;
 using NHotkey;
 using NHotkey.Wpf;
-using System.Threading.Tasks;
 
 namespace EyeDropper.UI.ViewModels;
 
