@@ -14,9 +14,9 @@
     <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
     <PackageVersion Include="NHotkey.Wpf" Version="3.0.0" />
-    <PackageVersion Include="WixToolset.Bal.wixext" Version="6.0.0" />
-    <PackageVersion Include="WixToolset.BootstrapperApplicationApi" Version="6.0.0" />
-    <PackageVersion Include="WixToolset.Heat" Version="6.0.0" />
-    <PackageVersion Include="WixToolset.Netfx.wixext" Version="6.0.0" />
+    <PackageVersion Include="WixToolset.Bal.wixext" Version="6.0.1" />
+    <PackageVersion Include="WixToolset.BootstrapperApplicationApi" Version="6.0.1" />
+    <PackageVersion Include="WixToolset.Heat" Version="6.0.1" />
+    <PackageVersion Include="WixToolset.Netfx.wixext" Version="6.0.1" />
   </ItemGroup>
 </Project>
